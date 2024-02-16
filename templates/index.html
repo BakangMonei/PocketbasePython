@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Pocketbase Integration</title>
+</head>
+<body>
+    <h1>Flask Pocketbase Integration</h1>
+    <form action="/submit" method="post">
+        <label for="firstname">First Name:</label><br>
+        <input type="text" id="firstname" name="firstname"><br>
+        <label for="lastname">Last Name:</label><br>
+        <input type="text" id="lastname" name="lastname"><br>
+        <label for="phonenumber">Phone Number:</label><br>
+        <input type="text" id="phonenumber" name="phonenumber"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="sport">Sport:</label><br>
+        <input type="text" id="sport" name="sport"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <hr>
+
+    <h2>Records:</h2>
+    <button onclick="getData()">Get Data</button>
+    <div id="data"></div>
+
+    <script>
+        function getData() {
+            fetch('/get')
+                .then(response => response.json())
+                .then(data => {
+                    let dataDiv = document.getElementById('data');
+                    dataDiv.innerHTML = '';
+                    data.forEach(record => {
+                        dataDiv.innerHTML += `<p>${JSON.stringify(record)}</p>`;
+                    });
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+For MacOS
+Command for setting up my Virtual Env: 'python3 -m venv venv'
+Command for starting my python: 'source venv/bin/activate'
+Command for installing dependencies: 'pip install package_name'
+Command for stopping my python: 'deactivate'
+
+
+Downloading the desired dependencies
+
+Pocketbase: pip install pocketbase
+Create a Local Server: pip install Flask
